@@ -33,6 +33,23 @@
          s.src = 'https://d1mj578wat5n4o.cloudfront.net/boxever-1.4.6.min.js';
          var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
     })();
+
+	_boxeverq.push(function() { 
+    var searchEvent = {
+        "browser_id": Boxever.getID(),
+        "channel": "WEB",
+        "type": "SEARCH",
+        "language": "EN",
+        "currency": "EUR",
+        "page": "/test",
+        "pos": "boxever.vercel.app",
+        "product_name": "DUB-LHR",
+        "product_type": "DUB-LHR|Economy|Flex"
+    };
+    // Invoke event create 
+    // (<event msg>, <callback function>, <format>)
+    Boxever.eventCreate(searchEvent, function(data){}, 'json');
+});
 </script>
 </head>
 <body>
