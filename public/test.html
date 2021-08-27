@@ -2,7 +2,7 @@
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>$(document).ready(function () {
-            $("button").click(function () {
+            $("#btn2").click(function () {
                 $.post("https://61273754c2e8920017bc0b78.mockapi.io/test",
                     {
                         name: "Donald Duck",
@@ -51,7 +51,9 @@
 <body>
     <p>This is CDP demo</p>
 
-    <button>Send an HTTP POST request to a page and get the result back</button>
+    <button id="btn1">Send an HTTP POST request to a page and get the result back</button>
+    
+     <button id="btn2">capture UTM parameters on a VIEW event</button>
 
     <h1>Browser ID: <span id="myText"></span></h1>
 
