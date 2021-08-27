@@ -1,8 +1,9 @@
 <html>
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script>$(document).ready(function () {
-            $("#btn2").click(function () {
+    <script>
+        $(document).ready(function () {
+            $("#btn1").click(function () {
                 $.post("https://61273754c2e8920017bc0b78.mockapi.io/test",
                     {
                         name: "Donald Duck",
@@ -12,7 +13,29 @@
                         alert("Data: " + data.items.name + "\nStatus: " + status);
                     });
             });
-        });</script>
+            
+             $("#btn2").click(function () {
+                // Place an anonymous function in the Boxever queue 
+                _boxeverq.push(function() { 
+                var viewEvent = {
+                    "browser_id": Boxever.getID(),
+                    "channel": "WEB",
+                    "type": "VIEW",
+                    "language": "EN",
+                    "currency": "EUR",
+                    "page": "/home",
+                    "pos": "alphaspingaming.com"
+                };
+                //Add UTM params
+                viewEvent = Boxever.addUTMParams(viewEvent);
+                // Invoke event create 
+                // (<event msg>, <callback function>, <format>)
+                Boxever.eventCreate(viewEvent, function(data){}, 'json');
+                });         
+            });
+            
+        });
+    </script>
 
     <title>My CDP page</title>
     <script type="text/javascript">// Define the Boxever queue
