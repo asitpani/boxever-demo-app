@@ -1,63 +1,59 @@
 <html>
 <head>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script>
-		$(document).ready(function(){
-		  $("button").click(function(){
-		    $.post("https://61273754c2e8920017bc0b78.mockapi.io/test",
-		    {
-		      name: "Donald Duck",
-		      city: "Duckburg"
-		    },
-		    function(data,status){
-		      alert("Data: " + data.items.name + "\nStatus: " + status);
-		    });
-		  });
-		});
-	</script>
-	
-	<title>My CDP page</title>
-	<script type="text/javascript">
-    // Define the Boxever queue 
-    var _boxeverq = _boxeverq || [];
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>$(document).ready(function () {
+            $("button").click(function () {
+                $.post("https://61273754c2e8920017bc0b78.mockapi.io/test",
+                    {
+                        name: "Donald Duck",
+                        city: "Duckburg"
+                    },
+                    function (data, status) {
+                        alert("Data: " + data.items.name + "\nStatus: " + status);
+                    });
+            });
+        });</script>
 
-    // Define the Boxever settings 
-    var _boxever_settings = {
-        client_key: 'pqsrxehja3f17kpxeuvoare26qfmbcu0',
-        target: 'https://api.boxever.com/v1.2',
-        cookie_domain: 'boxever.vercel.app'
-};
-    // Import the Boxever library asynchronously 
-    (function() {
-         var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true;  
-         s.src = 'https://d1mj578wat5n4o.cloudfront.net/boxever-1.4.6.min.js';
-         var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
-    })();
+    <title>My CDP page</title>
+    <script type="text/javascript">// Define the Boxever queue
+        var _boxeverq = _boxeverq || [];
 
-	var browser_id = Boxever.getID();
-		
-	//_boxeverq.push(function() { 
-    //var searchEvent = {
-        //"browser_id": Boxever.getID(),
-        //"channel": "WEB",
-        //"type": "SEARCH",
-        //"language": "EN",
-        //"currency": "EUR",
-        //"page": "/test",
-        //"pos": "alphaspingaming.com",
-        //"product_name": "DUB-LHR",
-        //"product_type": "DUB-LHR|Economy|Flex"
-    //};
-    //Boxever.eventCreate(searchEvent, function(data){}, 'json');
-//});
-</script>
+        // Define the Boxever settings
+        var _boxever_settings = {
+            client_key: 'pqsrxehja3f17kpxeuvoare26qfmbcu0',
+            target: 'https://api.boxever.com/v1.2',
+            cookie_domain: 'boxever.vercel.app'
+        };
+        // Import the Boxever library asynchronously
+        (function () {
+            var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true;
+            s.src = 'https://d1mj578wat5n4o.cloudfront.net/boxever-1.4.6.min.js';
+            var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
+        })();
+
+        document.getElementById("myText").innerHTML = Boxever.getID();
+
+        //_boxeverq.push(function() {
+        //var searchEvent = {
+            //"browser_id": Boxever.getID(),
+            //"channel": "WEB",
+            //"type": "SEARCH",
+            //"language": "EN",
+            //"currency": "EUR",
+            //"page": "/test",
+            //"pos": "alphaspingaming.com",
+            //"product_name": "DUB-LHR",
+            //"product_type": "DUB-LHR|Economy|Flex"
+        //};
+        //Boxever.eventCreate(searchEvent, function(data){}, 'json');
+//});</script>
 </head>
 <body>
-	<p>This is CDP demo</p>
+    <p>This is CDP demo</p>
 
-<button>Send an HTTP POST request to a page and get the result back</button>
-	
-	browser_id: browser_id
+    <button>Send an HTTP POST request to a page and get the result back</button>
+
+    <h1>Browser ID: <span id="myText"></span></h1>
 
 </body>
 </html>
