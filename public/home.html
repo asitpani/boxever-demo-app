@@ -1,0 +1,165 @@
+    <html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <script>$(document).ready(function ()
+            {
+                $("#btn1").click(function () {
+                    $.post("https://61273754c2e8920017bc0b78.mockapi.io/test",
+                        {
+                            name: "Asit",
+                            city: "Bangalore"
+                        },
+                        function (data, status) {
+                            alert("Data: " + data.items.name + "\nStatus: " + status);
+                        });
+                });
+
+                //View event and add UTM parameters
+                $("#btn2").click(function () {                   
+                    _boxeverq.push(function () {
+                        var viewEvent = {
+                            "browser_id": Boxever.getID(),
+                            "channel": "WEB",
+                            "type": "VIEW",
+                            "language": "EN",
+                            "currency": "EUR",
+                            "page": "home",
+                            "pos": "alphaspingaming.com"
+                        };
+                        
+                        viewEvent = Boxever.addUTMParams(viewEvent);
+                        
+                        Boxever.eventCreate(viewEvent, function (data) { }, 'json');
+                    });
+                });
+
+                //SUBSCRIPTION event
+    //"emails": ["asit@test.com"],
+                $("#btn3").click(function () {
+                    _boxeverq.push(function () {
+                        var subscriptionEvent = {
+                            "browser_id": Boxever.getID(),
+                            "channel": "WEB",
+                            "type": "VIEW",
+                            "language": "EN",
+                            "currency": "EUR",
+                            "page": "home - newsletter4",
+                            "sessionData": {
+                                "deep_link": "https://www.retailsite123.com/search?product=shoes",
+                                "email": "asit@test.com",
+                                "guestType": "customer",
+                                "firstName": "Asit"
+                            }
+                        };
+                        
+                        Boxever.eventCreate(subscriptionEvent, function (data) { }, 'json');
+                    });
+                });
+
+            });
+        </script>
+
+        <title>My CDP page</title>
+        <script type="text/javascript">// Define the Boxever queue
+            var _boxeverq = _boxeverq || [];
+
+            // Define the Boxever settings
+            var _boxever_settings = {
+                client_key: 'pqsrxehja3f17kpxeuvoare26qfmbcu0',
+                target: 'https://api.boxever.com/v1.2',
+                cookie_domain: 'boxever.vercel.app'
+            };
+            // Import the Boxever library asynchronously
+            (function () {
+                var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true;
+                s.src = 'https://d1mj578wat5n4o.cloudfront.net/boxever-1.4.6.min.js';
+                var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
+            })();
+
+                
+            _boxeverq.push(function () {
+                var viewEvent = {
+                    "browser_id": Boxever.getID(),
+                    "channel": "WEB",
+                    "type": "VIEW",
+                    "language": "EN",
+                    "currency": "EUR",
+                    "page": "/home",
+                    "pos": "alphaspingaming.com"
+                };
+
+                Boxever.eventCreate(viewEvent, function (data) { }, 'json');
+            });
+
+            
+            
+                //------------------------------------------VIEW with Session Data EVENT start------------------------------------------
+                //_boxeverq.push(function () {
+                    //var viewEvent = {
+                    //    "browser_id": Boxever.getID(),
+                    //    "channel": "WEB",
+                    //    "type": "VIEW",
+                    //    "language": "EN",
+                    //    "currency": "EUR",
+                    //    "page": "/home",
+                    //    "pos": "alphaspingaming.com",
+                    //"sessionData": {
+                    //"deep_link": "https://www.retailsite123.com/search?product=shoes"
+                    //}
+                    //};
+                    
+                    // Invoke event create
+                    // (<event msg>, <callback function>, <format>)
+                    //Boxever.eventCreate(viewEvent, function (data) { }, 'json');
+                //});
+                //------------------------------------------VIEW with Session Data EVENT end------------------------------------------
+
+                //------------------------------------------IDENTITY EVENT start------------------------------------------
+                //https://developer.boxever.com/reference/identifying-a-guest
+                //{
+                //    "channel": "WEB",
+                //    "type": "IDENTITY",
+                //    "language": "EN",
+                //    "currency": "EUR",
+                //    "page": "home page",
+                //    "pos": "retailsite123.com",
+                //    "browser_id": "56860bff-94ba-4d84-aa37-2b5a83d5411b",
+                //    "identifiers": [{
+                //      "provider": "BXLP",
+                //      "id": "123456"
+                //    }]
+                //}
+                //------------------------------------------IDENTITY EVENT end------------------------------------------
+
+                //------------------------------------------SEARCH EVENT start------------------------------------------
+                //_boxeverq.push(function() {
+                //var searchEvent = {
+                    //"browser_id": Boxever.getID(),
+                    //"channel": "WEB",
+                    //"type": "SEARCH",
+                    //"language": "EN",
+                    //"currency": "EUR",
+                    //"page": "/test",
+                    //"pos": "alphaspingaming.com",
+                    //"product_name": "DUB-LHR",
+                    //"product_type": "DUB-LHR|Economy|Flex"
+                //};
+                    //Boxever.eventCreate(searchEvent, function(data){}, 'json');
+                //});
+                //------------------------------------------SEARCH EVENT end------------------------------------------
+        </script>
+    </head>
+    <body>
+        <p>This is CDP home page</p>
+
+        <button id="btn1">Send an HTTP POST request to a page and get the result back</button>
+        <button id="btn2">capture UTM parameters on a VIEW event</button>
+
+        <p>Newsletter Subscription</p>
+        Email: <input type="text" id="myText" value="asit@test.com">
+        <button id="btn3">Subscribe to our monthly newsletter</button>
+
+
+    </body>
+    </html>
