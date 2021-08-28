@@ -34,28 +34,78 @@
                     });
                 });
 
-                //SUBSCRIPTION event
-    //"emails": ["asit@test.com"],
+                //Guest Identifier event
                 $("#btn3").click(function () {
-                    _boxeverq.push(function () {
-                        var subscriptionEvent = {
-                            "browser_id": Boxever.getID(),
-                            "channel": "WEB",
-                            "type": "VIEW",
-                            "language": "EN",
-                            "currency": "EUR",
-                            "page": "home - newsletter4",
-                            "sessionData": {
-                                "deep_link": "https://www.retailsite123.com/search?product=shoes",
-                                "email": "asit@test.com",
-                                "guestType": "customer",
-                                "firstName": "Asit"
-                            }
-                        };
-                        
+                        _boxeverq.push(function () {
+                            var subscriptionEvent = {
+                                "browser_id": Boxever.getID(),
+                                "channel": "WEB",
+                                "type": "IDENTITY",
+                                "language": "EN",
+                                "currency": "EUR",
+                                "pos": "alphaspingaming.com",
+                                "email": "abc3@test.com",
+                                "identifiers": [{
+                                    "provider": "BOXEVER_IDENTITY_SYSTEM",
+                                    "id": "abc3@test.com"
+                                }]
+                            };
+                            Boxever.eventCreate(subscriptionEvent, function (data) { }, 'json');
+
+                            var viewEvent = {
+                                "browser_id": Boxever.getID(),
+                                "channel": "WEB",
+                                "type": "NEWSLETTER_SUBSCRIBE"
+
+
+                                /*"browser_id": Boxever.getID(),
+                                "channel": "WEB",
+                                "type": "VIEW",
+                                "language": "EN",
+                                "currency": "EUR",
+                                "pos": "alphaspingaming.com",
+                                "ext": {
+                                    "newsletter": "Subscribed"
+                                }*/
+
+                                /*"type": "VIEW",
+                                "clientKey": "pqsrxehja3f17kpxeuvoare26qfmbcu0",
+                                "browserRef": Boxever.getID(),
+                                "channel": "WEB",
+                                "pointOfSale": "alphaspingaming.com",
+                                "language": "EN",
+                                "currencyCode": "EUR",
+                                "page": "home page test",
+                                "utmSource": "Google",
+                                "utmMedium": "PPC",
+                                "utmCampaign": "103970",
+                                "utr": "14d7c8f3-e279-44cc-8c86-5711d5e4a9b3",
+                                "utmTerm": "foo+bar",
+                                "utmContent": "bannerad",
+                                "ext": {
+                                    "newsletter": "Subscribed"
+                                }*/
+                            };
+                           
+
+                            Boxever.eventCreate(viewEvent, function (data) { }, 'json');
+
+                            /*var subscriptionEvent1 = {
+                                "browser_id": Boxever.getID(),
+                                "type": "NEWSLETTER_SUBSCRIPTION",
+                                "channel": "WEB",
+                                "pos": "alphaspingaming.com"
+                            };
+    
+                            Boxever.eventCreate(subscriptionEvent1, function (data) { }, 'json');*/
+
+
+                        });
+
                         Boxever.eventCreate(subscriptionEvent, function (data) { }, 'json');
+
+
                     });
-                });
 
             });
         </script>
