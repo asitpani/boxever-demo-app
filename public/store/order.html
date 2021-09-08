@@ -67,7 +67,7 @@
 			<p>
 				<input type="submit" id="place-order" value="Place Order" class="btn" />
 				<input type="submit" id="cancel-order" value="Cancel Order" class="btn" />
-				<a href="index.html" class="btn">Continue Shopping</a>
+				<a href="/store/index.html" class="btn">Continue Shopping</a>
 			</p>
 
 
@@ -81,13 +81,13 @@
 			$("#place-order").click(function () {
 				boxeverplaceOrder();
 				sessionStorage.clear();
-				location.href = "thankyou.html";
+                location.href = "/store/thankyou.html";
 			});
 
 			$("#cancel-order").click(function () {
 				boxevercancelOrder();
 				sessionStorage.clear();
-				location.href = "/";
+                location.href = "/store/index.html";
 			});
 		});</script>
 </body>
