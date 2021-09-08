@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Your Order</title>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="style.css" media="screen" type="text/css">
+	<link rel="stylesheet" href="bootstrap.css" media="screen" type="text/css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script type="text/javascript" src="boxever.js"></script>
+	<script type="text/javascript" src="jquery.store.js"></script>
+	<script>
+        
+	</script>
+</head>
+
+<body id="checkout-page">
+	<section id="nav-bar">
+		<nav class="navbar navbar-expand-lg navbar-light">
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item">
+						<a style="color:black;" class="nav-link" href="/store">Home</a>
+					</li>
+					<li class="nav-item">
+						<a style="color:black;" class="nav-link" href="/store/cart.html">Cart</a>
+					</li>
+					<li class="nav-item">
+						<a style="color:black;" class="nav-link" href="/store/checkout.html">Checkout</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+
+
+	</section>
+	<div id="site">
+
+		<div id="content">
+			<h1>Your Order</h1>
+			<table id="checkout-cart" class="shopping-cart">
+				<thead>
+					<tr>
+						<th scope="col">Item</th>
+						<th scope="col">Qty</th>
+						<th scope="col">Price</th>
+					</tr>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+			<div id="pricing">
+					
+				<p id="shipping">
+					<strong>Shipping</strong>: <span id="sshipping"></span>
+				</p>
+
+				<p id="sub-total">
+					<strong>Total</strong>: <span id="stotal"></span>
+				</p>
+			</div>
+
+			<div id="user-details">
+				<h2>Your Data</h2>
+				<div id="user-details-content"></div>
+			</div>
+
+			<p>
+				<input type="submit" id="place-order" value="Place Order" class="btn" />
+				<input type="submit" id="cancel-order" value="Cancel Order" class="btn" />
+				<a href="index.html" class="btn">Continue Shopping</a>
+			</p>
+
+
+		</div>
+
+
+
+	</div>
+	<script>$(document).ready(function () {
+    //boxeverConfirmOrder();
+			$("#place-order").click(function () {
+				boxeverplaceOrder();
+				sessionStorage.clear();
+				location.href = "thankyou.html";
+			});
+
+			$("#cancel-order").click(function () {
+				boxevercancelOrder();
+				sessionStorage.clear();
+				location.href = "/";
+			});
+		});</script>
+</body>
+</html>	
+
+   
